@@ -8,6 +8,14 @@ pipeline {
         archive 'target/*.jar' //so that they can be downloaded later test aa
       }
       }
+        //--------------------------
+    stage('UNIT test & jacoco ') {
+      steps {
+        sh "mvn test"
+      }
+
+ 
+    }
     //--------------------------
     stage('Docker Build and Push') {
       steps {
