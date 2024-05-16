@@ -11,7 +11,7 @@ pipeline {
     //--------------------------
     stage('Docker Build and Push') {
       steps {
-        withCredentials([string(credentialsId: 'docker_hub_password_PA', variable: 'password')]) {
+        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD_PA', variable: 'password')]) {
           sh 'sudo docker login -u tirtet -p $password'
           sh 'printenv'
           sh 'sudo docker build -t tirtet/devops-app:""$GIT_COMMIT"" .'
